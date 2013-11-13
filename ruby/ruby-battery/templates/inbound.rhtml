@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Batteraj Statusz</title>
+		<link rel="stylesheet" href="/static/style.css" type="text/css" />
+		<script src="/static/jquery-1.3.2.min.js" type="text/javascript"></script>
+		<script src="/static/custom.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<div id="title"><%= Core::APPLICATION_LONG_NAME %> version <%= Core::API_MAJOR_VERSION %>.<%= Core::API_MINOR_VERSION %></div>
+			</div> 
+			
+			<div class="box">
+				<a href="/status">Vissza</a>
+			</div>
+			<div class="box">
+				<table class="box">
+					<thead>
+						<th>ID</th>
+					</thead>
+					<tbody>
+					<% @inbound_queue.each do |message| %>
+						<tr>
+							<td><%= message.id %></td>
+						</tr>
+					<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

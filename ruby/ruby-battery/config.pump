@@ -1,0 +1,12 @@
+/priv/debug/set global.nodename = "battery"
+/priv/debug/set core.scheduler.sleep_high = 10
+/priv/debug/set core.scheduler.sleep_normal = 60
+/priv/debug/set core.scheduler.sleep_low = 300
+/priv/config-term/create connector d@dummy
+/priv/config-term/connector d/set sleep_time = ""
+/priv/config-term/create connector e@dummy
+/priv/config-term/router/create route "r01"
+/priv/config-term/router/route-edit r01/match sconn d
+/priv/config-term/router/route-edit r01/do hide  :
+/priv/config-term/router/route-edit r01/enable
+/priv/config-term/connector d/start
